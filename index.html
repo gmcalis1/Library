@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script>
 </head>
 <body>
     <dialog>
-        <button autofocus>Close</button>
+        <button>Close</button>
         <p>Book Title: </p>
-        <input id='titleInput' type="text">
+        <input autofocus id='titleInput' type="text">
         <p>Book Author: </p>
         <input id='authorInput' type="text">
         <p>Total Pages: </p>
@@ -22,6 +22,7 @@
         <button class="submitButton">Submit</button>
     </dialog>
     <button>NEW BOOK</button>
+    <button class="clear">CLEAR TABLE</button>
 
     <table>
         <caption>Books in Library</caption>
@@ -34,7 +35,7 @@
             </tr>
             
         </thead>
-        <tbody>
+        <tbody class="library">
             
         </tbody>
     </table>

@@ -3,18 +3,26 @@ const showButton = document.querySelector('dialog + button');
 const closeButton = document.querySelector('dialog button');
 const submitButton = document.querySelector('.submitButton')
 
+let table = document.querySelector('table');
+let tableBody = document.querySelector('.library');
+const newBody = document.createElement('tbody');
 const titleInput = document.querySelector('#titleInput');
 const authorInput = document.querySelector('#authorInput');
 const pageInput = document.querySelector('#pageInput');
 const readInput = document.querySelector('#readInput');
+const clearButton = document.querySelector('.clear')
 
 const myLibrary = [];
+clearButton.addEventListener("click", () => {
+    clearTable();
+})
 
 showButton.addEventListener("click", () => {
     dialog.showModal();
 });
 
 closeButton.addEventListener("click", () =>{
+    console.log(tableBody);
     dialog.close();
 });
 
@@ -24,11 +32,11 @@ submitButton.addEventListener('click', () =>{
     dialog.close();
 });
 
-
+function clearTable(){
+    tableBody = newBody;
+}
 
 function addRow(title, author, pages, read){
-    let table = document.querySelector("table")
-
     let row = document.createElement("tr");
     let c1 = document.createElement("td");
     let c2 = document.createElement('td');
@@ -48,7 +56,6 @@ function addRow(title, author, pages, read){
     table.appendChild(row);
 }
 
-
 function Book(title, author, pages, read) {
     this.title = title,
     this.author = author,
@@ -60,11 +67,12 @@ function Book(title, author, pages, read) {
     }
 }
 
-
 function displayLibrary(){
     console.table(myLibrary);
+
+    console.log(myLibrary[0].title)
     for(i = 0; i < myLibrary.length; i++){
-        addRow[myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read];
+        addRow(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read);
     }
 }
 
