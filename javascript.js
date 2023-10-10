@@ -1,7 +1,7 @@
 const dialog = document.querySelector('dialog');
 const showButton = document.querySelector('dialog + button');
 const closeButton = document.querySelector('dialog button');
-const submitButton = document.querySelector('.submitButton')
+const submitButton = document.querySelector('.submitButton');
 
 let table = document.querySelector('table');
 let tableBody = document.querySelector('.library');
@@ -10,9 +10,16 @@ const titleInput = document.querySelector('#titleInput');
 const authorInput = document.querySelector('#authorInput');
 const pageInput = document.querySelector('#pageInput');
 const readInput = document.querySelector('#readInput');
-const clearButton = document.querySelector('.clear')
+const clearButton = document.querySelector('.clear');
+const removeButton = document.querySelector('.remove');
 
 const myLibrary = [];
+
+
+// FINISH REMOVE BUTTON ON TABLE
+
+
+
 clearButton.addEventListener("click", () => {
     clearTable();
 })
@@ -26,14 +33,26 @@ closeButton.addEventListener("click", () =>{
     dialog.close();
 });
 
+
+
 submitButton.addEventListener('click', () =>{
     const book = new Book(titleInput.value, authorInput.value, pageInput.value, readInput.value)
     addBookToLibrary(book);
     dialog.close();
+    titleInput.value = '';
+    authorInput.value = '';
+    pageInput.value = '';
+    readInput.value = '';
 });
 
 function clearTable(){
-    tableBody = newBody;
+    while(tableBody.firstChild){
+        tableBody.removeChild(tableBody.firstChild);
+    }
+}
+
+function removeRow(index){
+    tableBody.removeChild(tr);
 }
 
 function addRow(title, author, pages, read){
@@ -42,18 +61,30 @@ function addRow(title, author, pages, read){
     let c2 = document.createElement('td');
     let c3 = document.createElement("td");
     let c4 = document.createElement('td');
+    let c5 = document.createElement('button');
+    row.dataset.index = myLibrary.length - 1;
 
     c1.innerHTML = title;
     c2.innerHTML = author;
     c3.innerHTML = pages;
     c4.innerHTML = read;
+    c5.innerHTML = 'Remove';
+    c5.classList.add('remove');
 
     row.appendChild(c1);
     row.appendChild(c2);
     row.appendChild(c3);
     row.appendChild(c4);
+    row.appendChild(c5);
 
-    table.appendChild(row);
+    
+
+    tableBody.appendChild(row);
+
+
+    removeButton.addEventListener("click", ()=>{
+        console.log('hello');
+    })
 }
 
 function Book(title, author, pages, read) {
@@ -69,7 +100,7 @@ function Book(title, author, pages, read) {
 
 function displayLibrary(){
     console.table(myLibrary);
-
+    clearTable();
     console.log(myLibrary[0].title)
     for(i = 0; i < myLibrary.length; i++){
         addRow(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read);
