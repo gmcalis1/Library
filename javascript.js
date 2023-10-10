@@ -52,7 +52,8 @@ function clearTable(){
 }
 
 function removeRow(index){
-    tableBody.removeChild(tr);
+    console.log(";alskdjf;a");
+    /*tableBody.removeChild(tr);*/
 }
 
 function addRow(title, author, pages, read){
@@ -70,21 +71,15 @@ function addRow(title, author, pages, read){
     c4.innerHTML = read;
     c5.innerHTML = 'Remove';
     c5.classList.add('remove');
+    c5.onclick = removeRow(0);
 
     row.appendChild(c1);
     row.appendChild(c2);
     row.appendChild(c3);
     row.appendChild(c4);
     row.appendChild(c5);
-
-    
-
     tableBody.appendChild(row);
-
-
-    removeButton.addEventListener("click", ()=>{
-        console.log('hello');
-    })
+    
 }
 
 function Book(title, author, pages, read) {
