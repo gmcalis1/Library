@@ -17,7 +17,10 @@
         <p>Total Pages: </p>
         <input id='pageInput' type="text">
         <p>Read/Not Read: </p>
-        <input id='readInput' type="text">
+        <input id='readInput' name="readCheck" type="radio" value="Read">
+        <label for="readInput">Read</label>
+        <input id='readInputFalse' name="readCheck" type="radio" value="Not Read">
+        <label for="readInputFalse">Not Read</label>
 
         <button class="submitButton">Submit</button>
     </dialog>
@@ -28,6 +31,7 @@
         <caption>Books in Library</caption>
         <thead>
             <tr>
+                <th>Number</th>
                <th>Title</th>
                <th>Author</th>
                <th>Total Pages</th>
