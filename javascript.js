@@ -13,7 +13,6 @@ const readInput = document.querySelector('#readInput');
 const clearButton = document.querySelector('.clear');
 const removeButton = document.querySelector('.remove');
 
-let count = 0;
 const myLibrary = [];
 
 table.addEventListener('click', (event) =>{
@@ -69,6 +68,7 @@ function clearTable(){
     while(tableBody.firstChild){
         tableBody.removeChild(tableBody.firstChild);
     }
+}
 
 function removeRow(index){
     count = 0;

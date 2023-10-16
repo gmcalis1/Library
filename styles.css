@@ -2,10 +2,28 @@ body{
     background-color: gray;
 }
 
+
 html {
     font-family: sans-serif;
+    text-align: center;
   }
+
+table{
+  background-color: bisque;
+  border-collapse: collapse;
+  letter-spacing: 1;
+}
+th{
+  border: 2px solid black;
+}
+
+td{
+  border: 2px solid black;
+}
   
+
+
+  /*
   table {
     border-collapse: collapse;
     border: 2px solid rgb(200,200,200);
@@ -37,3 +55,4 @@ html {
   caption {
     padding: 10px;
   }
+  */
